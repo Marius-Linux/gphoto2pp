@@ -7,14 +7,7 @@ Table Of Contents
 -----------------
 * [Prerequisites](#prerequisites)
 * [2 Minute Tutorial](#2-minute-tutorial)
-* [Installation](INSTALL.md#installation)
-  * [User Prerequisites](INSTALL.md#user-prerequisites)
-  * [Dev/Test/Contributor Prerequisites](INSTALL.md#devtestcontributor-prerequisites)
-  * [Libgphoto2 (Simple)](INSTALL.md#installing-libgphoto2-simple)
-  * [Libgphoto2 (Advanced)](INSTALL.md#installing-libgphoto2-advanced)
-  * [CMake](INSTALL.md#installing-cmake)
-  * [Dev/Test/Contributor Only](INSTALL.md#installing-devtestcontributor-only)
-  * [gphoto2pp](INSTALL.md#installing-gphoto2pp)
+* [Building and Installing](#building-and-installing)
 * [Examples](#examples)
   * [Example 1](EXAMPLES.md#example-1)
   * [Example 2](EXAMPLES.md#example-2)
@@ -31,13 +24,14 @@ Table Of Contents
 * [FAQ](#faq)
 * [Doxygen Documentation](#doxygen-documentation)
 * [Other Useful Links](#other-useful-links)
-* [Version History](#version-history)
 
 Prerequisites
 ------------
-* A C++11 compiler (I've only tested g++, but others should work)
-* libgphoto2 (2.4.14 or greater)
-* cmake (2.8.3 or greater), *only needed to build the library once to generate libgphoto2pp.so*
+* A C++11 compiler
+* libgphoto2 (2.5.0 or greater)
+* cmake (3.1 or greater) *(build)*
+* cxxtest *(optional, for running tests)*
+* doxygen and graphviz *(optional, for generating documentation)*
   
 2 Minute Tutorial
 -----------------
@@ -85,9 +79,19 @@ and then execute it
 
 That's it! The library is certainly capable of more, which you can view at [examples](EXAMPLES.md).
 
-Installation
+Building and Installing
 ------------
-Please see the [Installation document](INSTALL.md) for details.
+```
+git clone 'https://github.com/Marius-Linux/gphoto2pp'
+cd gphotopp
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make
+make examples //Optional, for building examples
+make docs //Optional, for building documentation with doxygen
+sudo make install
+```
 
 Examples
 --------
@@ -109,7 +113,3 @@ Other Useful Links
 ---------------
 If you are new to gphoto2pp (and perhaps gphoto), then please view some of these resources:
 * This library wraps [gphoto](http://www.gphoto.org/)
-
-Version History
----------------
-Placeholder

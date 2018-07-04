@@ -15,15 +15,6 @@ Table Of Contents
 * [Example 10](#example-10) - Tether picture capturing
 * [Example 11](#example-11) - Debugging samples
 
-You can run the examples one of two ways:
-
-1. **gphoto2pp already installed**
-   Simply compile the example with this command:
-   ``g++ -std=c++11 exampleX.cpp -o exampleX -lgphoto2 -lgphoto2pp``
-2. **without gphoto2pp installed**
-   You will need to follow the [install instructions](INSTALL.md), but most importantly when you get the the last section ([installing gphoto2pp](INSTALL.md#installing-gphoto2pp)), you will need to build in debug mode, and then you can just run ``make examples``.
-   After that completes successfully, and then you can execute any example with the ``./bin/examples/exampleX``.
-
 The examples should have fairly detailed comments in the source code, so I will try not to repeat myself in the following sections.
 
 Example 1

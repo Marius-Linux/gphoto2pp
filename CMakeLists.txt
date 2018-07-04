@@ -15,6 +15,9 @@ find_package( Gphoto2 REQUIRED )
 
 include_directories(${Gphoto2_INCLUDE_DIRS})
 
+set(DEST_DIR ${CMAKE_INSTALL_PREFIX})
+CONFIGURE_FILE("libgphoto2pp.pc.in" "libgphoto2pp.pc" @ONLY)
+
 # base path of where binaries should be built
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 # where the library will be built to
@@ -33,14 +36,14 @@ set(GPHOTO2PP_HEADERS ${GPHOTO2PP_HPPHEADER_FILES} ${GPHOTO2PP_HEADER_FILES})
 add_library( gphoto2pp SHARED ${GPHOTO2PP_SOURCES})
 
 target_link_libraries( gphoto2pp ${Gphoto2_LIBRARIES} )
-include_directories("include")
+target_include_directories(gphoto2pp PUBLIC "include")
 
-# sets the shared library version
-# http://cmake.3232098.n2.nabble.com/Version-in-name-of-shared-library-td7581530.html
 set_target_properties( gphoto2pp PROPERTIES VERSION ${GPHOTO2PP_VERSION_STRING} SOVERSION ${GPHOTO2PP_VERSION_MAJOR} )
+set_target_properties(gphoto2pp PROPERTIES PUBLIC_HEADER "${GPHOTO2PP_HEADERS}")
 
-install( TARGETS gphoto2pp DESTINATION lib )
-install( FILES ${GPHOTO2PP_HEADERS} DESTINATION include/gphoto2pp )
+install( TARGETS gphoto2pp DESTINATION lib
+		 PUBLIC_HEADER DESTINATION include/gphoto2pp)
+install(FILES ${CMAKE_BINARY_DIR}/libgphoto2pp.pc DESTINATION share/pkgconfig)
 
 ###########
 # Examples

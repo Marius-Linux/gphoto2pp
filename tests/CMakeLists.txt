@@ -13,7 +13,6 @@ if(CXXTEST_FOUND)
 		# I used a simple string replace, to cut off .h.
 		string( REPLACE ".h" "" testname ${testssourcefile} )
 		CXXTEST_ADD_TEST( ${testname} "${testname}.cc" "${CMAKE_CURRENT_SOURCE_DIR}/${testssourcefile}" )
-		# Make sure YourLib is linked to each app
 		target_link_libraries( ${testname} gphoto2pp ${LIBS} )
 	endforeach( testssourcefile ${TESTS_SOURCE_FILES} )
 endif(CXXTEST_FOUND)

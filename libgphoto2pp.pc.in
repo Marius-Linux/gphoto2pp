@@ -1,0 +1,13 @@
+prefix=@DEST_DIR@
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+VERSION=@GPHOTO2PP_VERSION_STRING@
+
+Name: libgphoto2pp
+Description: A C++ wrapper for libgphoto2
+Version: @GPHOTO2PP_VERSION_STRING@
+Requires libgphoto2 >= 2.5.0
+
+Libs: -L${libdir} -lgphoto2pp
+Cflags: -I${includedir}/gphoto2pp
