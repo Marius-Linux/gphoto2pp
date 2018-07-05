@@ -48,7 +48,7 @@ namespace gphoto2pp
 		
 		gphoto2pp::checkResponse(gphoto2::gp_widget_get_value(m_cameraWidget, &temp),"gp_widget_get_value");
 		
-		return std::string(temp);
+        return (temp) ? std::string(temp) : std::string();
 	}
 	
 	void StringWidget::setValue(std::string const & value)

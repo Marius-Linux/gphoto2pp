@@ -109,7 +109,7 @@ namespace gphoto2pp
 		
 		gphoto2pp::checkResponse(gphoto2::gp_widget_get_choice(m_cameraWidget, index, &temp),"gp_widget_get_choice");
 		
-		return std::string(temp);
+        return (temp) ? std::string(temp) : std::string();
 	}
 	
 	std::string ChoicesWidget::choicesToString(std::string&& separator /* = " " */) const
