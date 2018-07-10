@@ -96,7 +96,7 @@ namespace gphoto2pp
 			throw exceptions::NoCameraFoundError("autoDetect(multiple)");
 		}
 		
-		return std::move(cameraListWrapper);
+        return cameraListWrapper;
 	}
 	
 	int checkResponse(int result, std::string&& methodName)
