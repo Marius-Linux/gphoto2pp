@@ -52,7 +52,7 @@ class WindowWidget;
 class CameraListWrapper;
 
 class CameraWrapper {
-  public:
+public:
     /**
      * @brief Create a Camera without prior using autoDetect static method. This method will
      * automatically choose the first camera it finds
@@ -255,7 +255,7 @@ class CameraWrapper {
      */
     void stopListeningForEvents();
 
-  private:
+private:
     /**
      * \brief Initializes the camera by connecting to the first camera found.
      */

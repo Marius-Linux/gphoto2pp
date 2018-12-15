@@ -28,7 +28,55 @@
 #include <stdexcept>
 
 namespace gphoto2pp {
+
+/**
+ * @brief libgphoto2 return codes encapsulated in C++ enum class.
+ *
+ * For more information about these return codes lookup in libgphoto2 documentation.
+ */
+enum class gphoto2_result_codes {
+    Ok = 0, // Everything is okay
+
+    //*** IOLib Errors ***
+    Error = -1,              // Generic Error
+    BadParameters = -2,      // Bad paramters passed
+    NoMemory = -3,           // Out of memory
+    Library = -4,            // Error in the camera driver
+    UnknownPort = -5,        // Unknown libgphoto2 port passed
+    NotSupported = -6,       // Functionality not supported
+    Io = -7,                 // Generic I/O error
+    FixedLimitExceeded = -8, // Buffer overflow of internal structure
+    TimeOut = -10,           // Operation timed out
+    IoSupportedSerial = -20, // Serial ports not supported
+    IoSupportedUsb = -21,    // USB ports not supported
+    IoInit = -31,            // Error initialising I/O
+    IoRead = -34,            // I/O during read
+    IoWrite = -35,           // I/O during write
+    IoUpdate = -37,          // I/O during update of settings
+    IoSerialSpeed = -41,     // Specified serial speed not possible.
+    IoUsbClearHalt = -51,    // Error during USB Clear HALT
+    IoUsbFind = -52,         // Error when trying to find USB device
+    IoUsbClaim = -53,        // Error when trying to claim the USB device
+    IoLock = -60,            // Error when trying to lock the device
+    Hal = -70,               // Unspecified error when talking to HAL
+
+    //*** Camlib Errors ***
+    CorruptedData = -102,     // Corrupted data received
+    FileExists = -103,        // File already exists
+    ModelNotFound = -105,     // Specified camera model was not found
+    DirectoryNotFound = -107, // Specified directory was not found
+    FileNotFound = -108,      // Specified file was not found
+    DirectoryExists = -109,   // Specified directory already exists
+    CameraBusy = -110,        // The camera is already busy
+    PathNotAbsolut = -111,    // Path is not absolute
+    Cancel = -112,            // Cancellation successful.
+    CameraError = -113,       // Unspecified camera error
+    OsFailure = -114,         // Unspecified failure of the operating system
+    NoSpace = -115,           // Not enough space
+};
+
 namespace exceptions {
+
 /**
  * \class GPhoto2ppException
  * Base class for all exceptions in this library
@@ -45,15 +93,16 @@ public:
 class gphoto2_exception : public GPhoto2ppException {
 public:
     gphoto2_exception(int result, std::string &&gp_result_string)
-        : GPhoto2ppException(std::move(gp_result_string)), m_resultCode(result) {}
+        : GPhoto2ppException(std::move(gp_result_string)),
+          m_resultCode(static_cast<gphoto2_result_codes>(result)) {}
 
     /**
      * \brief The error code received from the gphoto2 method
      */
-    int getResultCode() const { return m_resultCode; }
+    gphoto2_result_codes getResultCode() const { return m_resultCode; }
 
 private:
-    const int m_resultCode;
+    const gphoto2_result_codes m_resultCode;
 };
 
 class InvalidLinkedVersionException : public GPhoto2ppException {
