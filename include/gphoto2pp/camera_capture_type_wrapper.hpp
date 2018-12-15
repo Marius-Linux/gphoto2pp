@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -25,17 +25,15 @@
 #ifndef CAMERACAPTURETYPEWRAPPER_HPP
 #define CAMERACAPTURETYPEWRAPPER_HPP
 
-namespace gphoto2pp
-{
-	/**
-	 * Provides a C++ enum for the gphoto2 CameraCaptureType enum
-	 */
-	enum class CameraCaptureTypeWrapper : int
-	{
-		Image = 0,			///< Maps to GP_CAPTURE_IMAGE
-		Movie = 1,			///< Maps to GP_CAPTURE_MOVIE
-		Sound = 2,			///< Maps to GP_CAPTURE_SOUND
-	};
-}
+namespace gphoto2pp {
+/**
+ * Provides a C++ enum for the gphoto2 CameraCaptureType enum
+ */
+enum class CameraCaptureTypeWrapper : int {
+    Image = 0, ///< Maps to GP_CAPTURE_IMAGE
+    Movie = 1, ///< Maps to GP_CAPTURE_MOVIE
+    Sound = 2, ///< Maps to GP_CAPTURE_SOUND
+};
+} // namespace gphoto2pp
 
 #endif // CAMERACAPTURETYPEWRAPPER_HPP

@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -27,20 +27,19 @@
 
 #include <gphoto2pp/choices_widget.hpp>
 
-namespace gphoto2pp
-{
-	/**
-	 * \class RadioWidget
-	 * A class representing gphoto2 widgets which are of the widget type GPhoto2pp::CameraWidgetTypeWrapper::Radio
-	 */
-	class RadioWidget: public ChoicesWidget
-	{
-	friend class NonValueWidget;
-		
-	protected:
-		RadioWidget(gphoto2::_CameraWidget* cameraWidget);
-	};
+namespace gphoto2pp {
+/**
+ * \class RadioWidget
+ * A class representing gphoto2 widgets which are of the widget type
+ * GPhoto2pp::CameraWidgetTypeWrapper::Radio
+ */
+class RadioWidget : public ChoicesWidget {
+    friend class NonValueWidget;
 
-}
+protected:
+    RadioWidget(gphoto2::_CameraWidget *cameraWidget);
+};
+
+} // namespace gphoto2pp
 
 #endif // RADIOWIDGET_HPP

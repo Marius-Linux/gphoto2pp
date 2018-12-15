@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -27,16 +27,15 @@
 
 #include <string>
 
-namespace gphoto2pp
-{
-	/** struct CameraFilePathWrapper
-	 * Provides a POD for the camerafilepath. This doesn't actually wrap the gphoto2 CameraFilePath struct because the structure was so simple
-	 */
-	struct CameraFilePathWrapper
-	{
-		std::string Name;
-		std::string Folder;
-	};
-}
+namespace gphoto2pp {
+/** struct CameraFilePathWrapper
+ * Provides a POD for the camerafilepath. This doesn't actually wrap the gphoto2 CameraFilePath
+ * struct because the structure was so simple
+ */
+struct CameraFilePathWrapper {
+    std::string Name;
+    std::string Folder;
+};
+} // namespace gphoto2pp
 
 #endif // CAMERAFILEPATHWRAPPER_HPP

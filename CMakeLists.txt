@@ -4,8 +4,8 @@ project (gphoto2pp)
 set (CMAKE_CXX_STANDARD 11)
 
 set(GPHOTO2PP_VERSION_MAJOR 0)
-set(GPHOTO2PP_VERSION_MINOR 1)
-set(GPHOTO2PP_VERSION_PATCH 5)
+set(GPHOTO2PP_VERSION_MINOR 2)
+set(GPHOTO2PP_VERSION_PATCH 0)
 set(GPHOTO2PP_VERSION "${GPHOTO2PP_VERSION_MAJOR}.${GPHOTO2PP_VERSION_MINOR}.${GPHOTO2PP_VERSION_PATCH}")
 set(GPHOTO2PP_VERSION_STRING "${GPHOTO2PP_VERSION}")
 
@@ -13,7 +13,6 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules/)
 
 find_package( Gphoto2 REQUIRED )
 
-include_directories(${Gphoto2_INCLUDE_DIRS})
 
 set(DEST_DIR ${CMAKE_INSTALL_PREFIX})
 CONFIGURE_FILE("libgphoto2pp.pc.in" "libgphoto2pp.pc" @ONLY)
@@ -40,6 +39,8 @@ target_include_directories(gphoto2pp PUBLIC "include")
 
 set_target_properties( gphoto2pp PROPERTIES VERSION ${GPHOTO2PP_VERSION_STRING} SOVERSION ${GPHOTO2PP_VERSION_MAJOR} )
 set_target_properties(gphoto2pp PROPERTIES PUBLIC_HEADER "${GPHOTO2PP_HEADERS}")
+
+include_directories(${Gphoto2_INCLUDE_DIRS})
 
 install( TARGETS gphoto2pp DESTINATION lib
 		 PUBLIC_HEADER DESTINATION include/gphoto2pp)

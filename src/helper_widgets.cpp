@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -29,56 +29,59 @@
 #include <gphoto2pp/camera_widget_type_wrapper.hpp>
 #include <gphoto2pp/non_value_widget.hpp>
 
-namespace gphoto2pp
-{
-	namespace helper
-	{
-		void getWidgetSummary(NonValueWidget const & currentWidget, std::string const & parentWidgetPath, std::vector<std::string>& allWidgetNames, bool showFullName, bool onlySpecificWidgetType, CameraWidgetTypeWrapper const & filterByWidgetType)
-		{
-			std::string currentWidgetName{currentWidget.getName()};
-			
-			if(showFullName)
-			{
-				currentWidgetName = parentWidgetPath + "/" + currentWidgetName;
-			}
-			
-			// This means we are logging all widget types, and so we can ignore the filterByWidgetType argument
-			if(onlySpecificWidgetType == false)
-			{
-				allWidgetNames.push_back(currentWidgetName);
-			}
-			else if(filterByWidgetType == currentWidget.getType())
-			{
-				allWidgetNames.push_back(currentWidgetName);
-			}
-			
-			int numOfChildren = currentWidget.countChildren();
-								
-			for(int i = 0; i < numOfChildren; ++i)
-			{
-				auto childWidget = currentWidget.getChild<NonValueWidget>(i);
-				getWidgetSummary(childWidget, currentWidgetName, allWidgetNames, showFullName, onlySpecificWidgetType, filterByWidgetType);
-			}
-		}
-		
-		std::vector<std::string> getAllWidgetsNames(NonValueWidget const & parentWidget, bool showFullName /* = false */)
-		{
-			std::vector<std::string> allWidgetNames{};
-			
-			getWidgetSummary(parentWidget, std::string{""}, allWidgetNames, showFullName, false, CameraWidgetTypeWrapper::Window); // we could have passed in anything for the widget type because it will be ignored, we just chose Window
-			
-			return std::move(allWidgetNames);
-			
-			//~ return getAllWidgetsNamesOfType(parentWidget, CameraWidgetTypeWrapper::Unassigned, showFullName);
-		}
-		
-		std::vector<std::string> getAllWidgetsNamesOfType(NonValueWidget const & parentWidget, CameraWidgetTypeWrapper const & filterByWidgetType, bool showFullName /* = false */)
-		{
-			std::vector<std::string> allWidgetNames{};
-			
-			getWidgetSummary(parentWidget, std::string{""}, allWidgetNames, showFullName, true, filterByWidgetType);
-			
-			return std::move(allWidgetNames);
-		}
-	}
+namespace gphoto2pp {
+namespace helper {
+void getWidgetSummary(NonValueWidget const &currentWidget, std::string const &parentWidgetPath,
+                      std::vector<std::string> &allWidgetNames, bool showFullName,
+                      bool onlySpecificWidgetType,
+                      CameraWidgetTypeWrapper const &filterByWidgetType) {
+    std::string currentWidgetName{currentWidget.getName()};
+
+    if (showFullName) {
+        currentWidgetName = parentWidgetPath + "/" + currentWidgetName;
+    }
+
+    // This means we are logging all widget types, and so we can ignore the filterByWidgetType
+    // argument
+    if (onlySpecificWidgetType == false) {
+        allWidgetNames.push_back(currentWidgetName);
+    } else if (filterByWidgetType == currentWidget.getType()) {
+        allWidgetNames.push_back(currentWidgetName);
+    }
+
+    int numOfChildren = currentWidget.countChildren();
+
+    for (int i = 0; i < numOfChildren; ++i) {
+        auto childWidget = currentWidget.getChild<NonValueWidget>(i);
+        getWidgetSummary(childWidget, currentWidgetName, allWidgetNames, showFullName,
+                         onlySpecificWidgetType, filterByWidgetType);
+    }
 }
+
+std::vector<std::string> getAllWidgetsNames(NonValueWidget const &parentWidget,
+                                            bool showFullName /* = false */) {
+    std::vector<std::string> allWidgetNames{};
+
+    getWidgetSummary(
+        parentWidget, std::string{""}, allWidgetNames, showFullName, false,
+        CameraWidgetTypeWrapper::Window); // we could have passed in anything for the widget type
+                                          // because it will be ignored, we just chose Window
+
+    return std::move(allWidgetNames);
+
+    //~ return getAllWidgetsNamesOfType(parentWidget, CameraWidgetTypeWrapper::Unassigned,
+    // showFullName);
+}
+
+std::vector<std::string> getAllWidgetsNamesOfType(NonValueWidget const &parentWidget,
+                                                  CameraWidgetTypeWrapper const &filterByWidgetType,
+                                                  bool showFullName /* = false */) {
+    std::vector<std::string> allWidgetNames{};
+
+    getWidgetSummary(parentWidget, std::string{""}, allWidgetNames, showFullName, true,
+                     filterByWidgetType);
+
+    return std::move(allWidgetNames);
+}
+} // namespace helper
+} // namespace gphoto2pp

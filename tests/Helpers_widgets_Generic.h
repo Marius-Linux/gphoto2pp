@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,24 +24,19 @@
 
 #include <cxxtest/TestSuite.h>
 
-#include <gphoto2pp/helper_widgets.hpp>
 #include <gphoto2pp/camera_wrapper.hpp>
-#include <gphoto2pp/window_widget.hpp>
 #include <gphoto2pp/exceptions.hpp>
+#include <gphoto2pp/helper_widgets.hpp>
 #include <gphoto2pp/log.h>
+#include <gphoto2pp/window_widget.hpp>
 
-class Helpers_gphoto2_Generic : public CxxTest::TestSuite 
-{
-	gphoto2pp::CameraWrapper _camera;
-	
+class Helpers_gphoto2_Generic : public CxxTest::TestSuite {
+    gphoto2pp::CameraWrapper _camera;
+
 public:
-	void setUp()
-	{
-		FILELog::ReportingLevel() = logCRITICAL;
-	}
-	
-	void testGetAllWidgets()
-	{
-		TS_ASSERT_THROWS_NOTHING(gphoto2pp::helper::getAllWidgetsNames(_camera.getConfig()));
-	}
+    void setUp() { FILELog::ReportingLevel() = logCRITICAL; }
+
+    void testGetAllWidgets() {
+        TS_ASSERT_THROWS_NOTHING(gphoto2pp::helper::getAllWidgetsNames(_camera.getConfig()));
+    }
 };

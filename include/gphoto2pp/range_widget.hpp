@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -27,38 +27,37 @@
 
 #include <gphoto2pp/float_widget.hpp>
 
-namespace gphoto2pp
-{
-	struct RangeWidgetRange;
-	
-	/**
-	 * \class RangeWidget
-	 * A class representing gphoto2 widgets which are of the widget type GPhoto2pp::CameraWidgetTypeWrapper::Range
-	 */
-	class RangeWidget: public FloatWidget
-	{
-	friend class NonValueWidget;
+namespace gphoto2pp {
+struct RangeWidgetRange;
 
-	public:
-		/**
-		 * \brief Gets the widget's range.
-		 * \return the widget's range
-		 * \note Direct wrapper for <tt>gp_widget_get_range(...)</tt>
-		 * \throw GPhoto2pp::exceptions::gphoto2_exception
-		 */
-		RangeWidgetRange getRange() const;
-		
-		/**
-		 * \brief Gets the widget's range and returns their values in a user friendly string.
-		 * \return the widget's range
-		 * \throw GPhoto2pp::exceptions::gphoto2_exception
-		 */
-		std::string ToString() const;
+/**
+ * \class RangeWidget
+ * A class representing gphoto2 widgets which are of the widget type
+ * GPhoto2pp::CameraWidgetTypeWrapper::Range
+ */
+class RangeWidget : public FloatWidget {
+    friend class NonValueWidget;
 
-	protected:
-		RangeWidget(gphoto2::_CameraWidget* cameraWidget);
-	};
+public:
+    /**
+     * \brief Gets the widget's range.
+     * \return the widget's range
+     * \note Direct wrapper for <tt>gp_widget_get_range(...)</tt>
+     * \throw GPhoto2pp::exceptions::gphoto2_exception
+     */
+    RangeWidgetRange getRange() const;
 
-}
+    /**
+     * \brief Gets the widget's range and returns their values in a user friendly string.
+     * \return the widget's range
+     * \throw GPhoto2pp::exceptions::gphoto2_exception
+     */
+    std::string ToString() const;
+
+protected:
+    RangeWidget(gphoto2::_CameraWidget *cameraWidget);
+};
+
+} // namespace gphoto2pp
 
 #endif // RANGEWIDGET_HPP

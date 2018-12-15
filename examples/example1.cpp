@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -26,16 +26,16 @@
 
 #include <iostream>
 
-int main(int argc, char* argv[]) {
-	auto version = gphoto2pp::LibraryVersion();
-	std::cout << "#############################" << std::endl;
-	std::cout << "# Short Version - " << std::endl;
-	std::cout << "#############################" << std::endl;
-	std::cout << version << std::endl << std::endl;
-	
-	version = gphoto2pp::LibraryVersion(true);
-	std::cout << "#############################" << std::endl;
-	std::cout << "# Verbose Version - " << std::endl;
-	std::cout << "#############################" << std::endl;
-	std::cout << version << std::endl << std::endl;
+int main(int argc, char *argv[]) {
+    auto version = gphoto2pp::LibraryVersion();
+    std::cout << "#############################" << std::endl;
+    std::cout << "# Short Version - " << std::endl;
+    std::cout << "#############################" << std::endl;
+    std::cout << version << std::endl << std::endl;
+
+    version = gphoto2pp::LibraryVersion(true);
+    std::cout << "#############################" << std::endl;
+    std::cout << "# Verbose Version - " << std::endl;
+    std::cout << "#############################" << std::endl;
+    std::cout << version << std::endl << std::endl;
 }

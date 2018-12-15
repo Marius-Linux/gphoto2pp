@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -27,19 +27,18 @@
 
 #include <gphoto2pp/int_widget.hpp>
 
-namespace gphoto2pp
-{
-	/**
-	 * \class ToggleWidget
-	 * A class representing gphoto2 widgets which are of the widget type GPhoto2pp::CameraWidgetTypeWrapper::Toggle
-	 */
-	class ToggleWidget: public IntWidget
-	{
-	friend class NonValueWidget;
-	
-	protected:
-		ToggleWidget(gphoto2::_CameraWidget* cameraWidget);
-	};
-}
+namespace gphoto2pp {
+/**
+ * \class ToggleWidget
+ * A class representing gphoto2 widgets which are of the widget type
+ * GPhoto2pp::CameraWidgetTypeWrapper::Toggle
+ */
+class ToggleWidget : public IntWidget {
+    friend class NonValueWidget;
+
+protected:
+    ToggleWidget(gphoto2::_CameraWidget *cameraWidget);
+};
+} // namespace gphoto2pp
 
 #endif // TOGGLEWIDGET_HPP

@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -27,17 +27,15 @@
 
 #include <string>
 
-namespace gphoto2pp
-{
-	/** struct RangeWidgetRange
-	 * Provides a POD for the RangeWidget's getRange method.
-	 */
-	struct RangeWidgetRange
-	{
-		float Min;
-		float Max;
-		float Step;
-	};
-}
+namespace gphoto2pp {
+/** struct RangeWidgetRange
+ * Provides a POD for the RangeWidget's getRange method.
+ */
+struct RangeWidgetRange {
+    float Min;
+    float Max;
+    float Step;
+};
+} // namespace gphoto2pp
 
 #endif // RANGEWIDGETRANGE_HPP

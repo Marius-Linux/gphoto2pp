@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -27,25 +27,21 @@
 
 #include <memory>
 
-namespace gphoto2
-{
-	struct _GPContext;
+namespace gphoto2 {
+struct _GPContext;
 }
 
+namespace gphoto2pp {
+/**
+ * \brief Creates a shared pointer of GPContext to be used anywhere in the program. Passes in a
+ * deleter method which will free the context on destruction. \return the new context ready for
+ * usage \throw GPhoto2pp::exceptions::NoCameraFoundError if it didn't find any cameras
+ */
+std::shared_ptr<gphoto2::_GPContext> getContext();
 
-namespace gphoto2pp
-{
-	/**
-	 * \brief Creates a shared pointer of GPContext to be used anywhere in the program. Passes in a deleter method which will free the context on destruction.
-	 * \return the new context ready for usage
-	 * \throw GPhoto2pp::exceptions::NoCameraFoundError if it didn't find any cameras
-	 */
-	std::shared_ptr<gphoto2::_GPContext> getContext();
-	
-	namespace helper
-	{
-		// TODO
-	}
+namespace helper {
+// TODO
 }
+} // namespace gphoto2pp
 
 #endif // HELPERGPHOTO2_HPP

@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,19 +24,14 @@
 
 #include <gphoto2pp/radio_widget.hpp>
 
-#include <gphoto2pp/exceptions.hpp>
 #include <gphoto2pp/camera_widget_type_wrapper.hpp>
+#include <gphoto2pp/exceptions.hpp>
 
-namespace gphoto2pp
-{
+namespace gphoto2pp {
 
-	RadioWidget::RadioWidget(gphoto2::_CameraWidget* cameraWidget)
-		: ChoicesWidget{cameraWidget}
-	{
-		if(this->getType() != CameraWidgetTypeWrapper::Radio)
-		{
-			throw exceptions::InvalidWidgetType("The widget type must be a Radio Widget");
-		}
-	}
+RadioWidget::RadioWidget(gphoto2::_CameraWidget *cameraWidget) : ChoicesWidget{cameraWidget} {
+    if (this->getType() != CameraWidgetTypeWrapper::Radio) {
+        throw exceptions::InvalidWidgetType("The widget type must be a Radio Widget");
+    }
 }
-
+} // namespace gphoto2pp

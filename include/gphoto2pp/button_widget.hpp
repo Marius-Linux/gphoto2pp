@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -25,11 +25,10 @@
 #ifndef BUTTONWIDGET_HPP
 #define BUTTONWIDGET_HPP
 
-namespace gphoto2pp
-{
-	
-	// My D90 doesn't have button widget, so I'm not quite sure  how to implement this widget
-	
+namespace gphoto2pp {
+
+// My D90 doesn't have button widget, so I'm not quite sure  how to implement this widget
+
 }
 
 #endif // BUTTONWIDGET_HPP

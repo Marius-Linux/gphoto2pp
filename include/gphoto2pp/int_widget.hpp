@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -27,37 +27,36 @@
 
 #include <gphoto2pp/value_widget_base.hpp>
 
-namespace gphoto2pp
-{
-	/**
-	 * \class IntWidget
-	 * A class representing gphoto2 widgets which have a value that is meaningfully represented by an int
-	 */
-	class IntWidget: public ValueWidgetBase<int>
-	{
-	friend class NonValueWidget;
+namespace gphoto2pp {
+/**
+ * \class IntWidget
+ * A class representing gphoto2 widgets which have a value that is meaningfully represented by an
+ * int
+ */
+class IntWidget : public ValueWidgetBase<int> {
+    friend class NonValueWidget;
 
-	public:
-		/**
-		 * \brief Gets the widget's value in terms of int
-		 * \return the widget's int value
-		 * \note Direct wrapper for <tt>gp_widget_get_value(...)</tt>
-		 * \throw GPhoto2pp::exceptions::gphoto2_exception
-		 */
-		int getValue() const override;
-		
-		/**
-		 * \brief Sets the widget's value in terms of int
-		 * \param[in]	value	to set the widget to
-		 * \note Direct wrapper for <tt>gp_widget_set_value(...)</tt>
-		 * \throw GPhoto2pp::exceptions::gphoto2_exception
-		 */
-		void setValue(int const & value) override;
-		
-	protected:
-		IntWidget(gphoto2::_CameraWidget* cameraWidget);
-	};
+  public:
+    /**
+     * \brief Gets the widget's value in terms of int
+     * \return the widget's int value
+     * \note Direct wrapper for <tt>gp_widget_get_value(...)</tt>
+     * \throw GPhoto2pp::exceptions::gphoto2_exception
+     */
+    int getValue() const override;
 
-}
+    /**
+     * \brief Sets the widget's value in terms of int
+     * \param[in]	value	to set the widget to
+     * \note Direct wrapper for <tt>gp_widget_set_value(...)</tt>
+     * \throw GPhoto2pp::exceptions::gphoto2_exception
+     */
+    void setValue(int const &value) override;
+
+  protected:
+    IntWidget(gphoto2::_CameraWidget *cameraWidget);
+};
+
+} // namespace gphoto2pp
 
 #endif // INTWIDGET_HPP

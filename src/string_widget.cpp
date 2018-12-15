@@ -1,9 +1,9 @@
-/** \file 
+/** \file
  * \author Copyright (c) 2013 maldworth <https://github.com/maldworth>
  *
  * \note
  * This file is part of gphoto2pp
- * 
+ *
  * \note
  * gphoto2pp is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,37 +24,31 @@
 
 #include <gphoto2pp/string_widget.hpp>
 
-#include <gphoto2pp/helper_gphoto2.hpp>
 #include <gphoto2pp/camera_widget_type_wrapper.hpp>
+#include <gphoto2pp/helper_gphoto2.hpp>
 
 #include <gphoto2pp/exceptions.hpp>
 
-namespace gphoto2
-{
+namespace gphoto2 {
 #include <gphoto2/gphoto2-widget.h>
 }
 
-namespace gphoto2pp
-{
+namespace gphoto2pp {
 
-	StringWidget::StringWidget(gphoto2::_CameraWidget* cameraWidget)
-		: ValueWidgetBase{cameraWidget}
-	{
-	}
+StringWidget::StringWidget(gphoto2::_CameraWidget *cameraWidget) : ValueWidgetBase{cameraWidget} {}
 
-	std::string StringWidget::getValue() const
-	{
-		char* temp = nullptr;
-		
-		gphoto2pp::checkResponse(gphoto2::gp_widget_get_value(m_cameraWidget, &temp),"gp_widget_get_value");
-		
-        return (temp) ? std::string(temp) : std::string();
-	}
-	
-	void StringWidget::setValue(std::string const & value)
-	{
-		gphoto2pp::checkResponse(gphoto2::gp_widget_set_value(m_cameraWidget, value.c_str()),"gp_widget_set_value");
-	}
+std::string StringWidget::getValue() const {
+    char *temp = nullptr;
 
+    gphoto2pp::checkResponse(gphoto2::gp_widget_get_value(m_cameraWidget, &temp),
+                             "gp_widget_get_value");
+
+    return (temp) ? std::string(temp) : std::string();
 }
 
+void StringWidget::setValue(std::string const &value) {
+    gphoto2pp::checkResponse(gphoto2::gp_widget_set_value(m_cameraWidget, value.c_str()),
+                             "gp_widget_set_value");
+}
+
+} // namespace gphoto2pp
