@@ -323,6 +323,9 @@ bool CameraWrapper::startListeningForEvents() {
                 FILE_LOG(logCRITICAL)
                     << "An Exception was thrown when waiting for camera events. The "
                        "Camera possibly lost connection with the computer";
+                m_cameraEvents(CameraEventTypeWrapper::ConnectionLost,
+                               CameraFilePathWrapper{"", ""},
+                               std::string("No Event Data Returned"));
 
                 return false;
             }

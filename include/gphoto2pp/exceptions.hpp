@@ -34,7 +34,7 @@ namespace gphoto2pp {
  *
  * For more information about these return codes lookup in libgphoto2 documentation.
  */
-enum class gphoto2_result_codes {
+enum class GPhoto2ResultCodesWrapper {
     Ok = 0, // Everything is okay
 
     //*** IOLib Errors ***
@@ -94,15 +94,15 @@ class gphoto2_exception : public GPhoto2ppException {
 public:
     gphoto2_exception(int result, std::string &&gp_result_string)
         : GPhoto2ppException(std::move(gp_result_string)),
-          m_resultCode(static_cast<gphoto2_result_codes>(result)) {}
+          m_resultCode(static_cast<GPhoto2ResultCodesWrapper>(result)) {}
 
     /**
      * \brief The error code received from the gphoto2 method
      */
-    gphoto2_result_codes getResultCode() const { return m_resultCode; }
+    GPhoto2ResultCodesWrapper getResultCode() const { return m_resultCode; }
 
 private:
-    const gphoto2_result_codes m_resultCode;
+    const GPhoto2ResultCodesWrapper m_resultCode;
 };
 
 class InvalidLinkedVersionException : public GPhoto2ppException {

@@ -133,7 +133,7 @@ int main(int argc, char *argv[]) {
         f1.close();
 
     } catch (gphoto2pp::exceptions::gphoto2_exception &e) {
-        std::cout << "GPhoto Exception Code: " << e.getResultCode() << std::endl;
+        std::cout << "GPhoto Exception Code: " << static_cast<int>(e.getResultCode()) << std::endl;
         std::cout << "Exception Message: " << e.what() << std::endl;
     }
 }

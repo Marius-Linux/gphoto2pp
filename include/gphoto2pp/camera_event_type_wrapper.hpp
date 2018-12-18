@@ -35,6 +35,8 @@ enum class CameraEventTypeWrapper : int {
     FileAdded = 2,       ///< Maps to GP_EVENT_FILE_ADDED
     FolderAdded = 3,     ///< Maps to GP_EVENT_FOLDER_ADDED
     CaptureComplete = 4, ///< Maps to GP_EVENT_CAPTURE_COMPLETE
+
+    ConnectionLost = 99 ///< Connection to camera lost while listening for events
 };
 } // namespace gphoto2pp
 
